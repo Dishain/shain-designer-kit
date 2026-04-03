@@ -6,6 +6,53 @@ A Claude Code configuration for designers and vibe-coders. Includes 9 specialize
 
 **Stack:** Any. React, Vue, Svelte, vanilla HTML, Telegram bots — this config adapts to your project.
 
+## How to Use
+
+### Option A: New project (start from scratch)
+
+```bash
+# Clone the kit
+git clone https://github.com/Dishain/claude-designer-kit.git my-project
+cd my-project
+
+# Open in Claude Code
+claude .          # CLI
+# or open this folder in Claude Code desktop app
+```
+
+Claude will automatically read CLAUDE.md, load the rules, and have access to all agents. Just describe what you want to build.
+
+### Option B: Add to existing project
+
+```bash
+# Clone the kit temporarily
+git clone https://github.com/Dishain/claude-designer-kit.git /tmp/cdk
+
+# Copy config files into your project
+cp -r /tmp/cdk/.claude /path/to/your-project/
+cp /tmp/cdk/CLAUDE.md /path/to/your-project/
+cp /tmp/cdk/.mcp.json /path/to/your-project/
+cp -r /tmp/cdk/docs /path/to/your-project/
+```
+
+Then open your project in Claude Code as usual.
+
+### What happens when you start working
+
+1. Claude reads `CLAUDE.md` and loads all rules automatically
+2. You describe what you want: *"Make me a landing page for my photography portfolio"*
+3. Claude picks the right agents for the job (BA → UX → UI → Developer → Tester)
+4. Progress is tracked in `docs/todo.md`
+5. When you correct Claude, it saves the lesson to `docs/lessons.md` (project memory)
+6. Next session, Claude reads `lessons.md` first — it won't repeat the same mistakes
+
+## Project Memory
+
+The kit includes a self-improvement system:
+
+- **`docs/todo.md`** — Claude writes the task plan here and tracks progress with checkboxes
+- **`docs/lessons.md`** — After every correction, Claude records what went wrong and the rule to follow. This file persists between sessions, so Claude learns your preferences over time.
+
 ## What's Included
 
 ### Agents (9)
@@ -47,32 +94,23 @@ Telegram Bot:      BA → UX-Researcher → Bot-Developer → Tester
 Bug Fix:           Developer (or Bot-Developer) → Tester
 ```
 
-## Quick Start
+## MCP Servers
 
-### Step 1: Copy Configuration
+The `.mcp.json` includes these integrations (configure API keys as needed):
 
-```bash
-git clone https://github.com/YOUR_USERNAME/claude-designer-kit.git /tmp/claude-designer-kit
+| Server | Purpose |
+|--------|---------|
+| Figma | Fetch designs, extract tokens, screenshots |
+| Shadcn UI | Component library reference |
+| Context7 | Up-to-date framework documentation |
+| GitHub | PR, issues, code access |
 
-cp -r /tmp/claude-designer-kit/.claude /path/to/your-project/
-cp /tmp/claude-designer-kit/CLAUDE.md /path/to/your-project/
-cp /tmp/claude-designer-kit/.mcp.json /path/to/your-project/
-```
+### Configure API Keys
 
-### Step 2: Configure MCP Servers
-
-Edit `.mcp.json` and set your API keys:
-
-- `FIGMA_API_KEY` — get from Figma → Settings → Personal Access Tokens
-- `CONTEXT7_API_KEY` — get from [Context7](https://context7.com)
-- `GITHUB_PERSONAL_ACCESS_TOKEN` — get from GitHub → Settings → Developer settings → Tokens
-
-### Step 3: Customize
-
-Edit `CLAUDE.md` to add project-specific instructions:
-- Your design system details
-- Project-specific conventions
-- Preferred frameworks or libraries
+Edit `.mcp.json` and set:
+- `FIGMA_API_KEY` — Figma → Settings → Personal Access Tokens
+- `CONTEXT7_API_KEY` — [context7.com](https://context7.com)
+- `GITHUB_PERSONAL_ACCESS_TOKEN` — GitHub → Settings → Developer settings → Tokens
 
 ## Customization
 
@@ -99,11 +137,7 @@ Create `.claude/rules/my-rule.md` with markdown content. Rules are auto-loaded f
 
 ### Trilingual Support
 
-All agents include trigger words in English, Ukrainian, and Russian. To add another language:
-
-```
-Trigger words — DE: schlüsselwort1, schlüsselwort2.
-```
+All agents include trigger words in English, Ukrainian, and Russian. To add another language, extend the description field in the YAML frontmatter.
 
 ## License
 
