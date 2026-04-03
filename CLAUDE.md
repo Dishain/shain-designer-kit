@@ -41,4 +41,5 @@
 - `workflow.md` — Agent pipeline: BA → UX-Researcher → UI-Builder → A11y Auditor → Developer → Tester
 - `design-principles.md` — Visual hierarchy, spacing, typography, color, responsive design
 - `code-style.md` — Clean code conventions (multi-stack: React, Vue, Svelte, Python, HTML)
+- `verification.md` — **Self-verification loop**: always check your own work before reporting done (browser, screenshots, tests)
 - `git-operations.md` — Commit/push rules, PR description format

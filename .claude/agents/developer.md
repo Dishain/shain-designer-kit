@@ -111,10 +111,25 @@ Before completing any feature:
 - [ ] Code follows existing project conventions
 - [ ] Explained what was built and how to test it
 
+## Self-Verification Loop (MANDATORY)
+
+Before reporting ANY task as complete, you MUST verify it yourself:
+
+1. **Start the dev server** if not running (or restart if crashed)
+2. **Open the browser** and navigate to the affected page
+3. **Take a screenshot** and visually confirm changes are correct
+4. **Test interactions** — click buttons, submit forms, check navigation
+5. **Check console** for errors or warnings
+6. **If anything is broken** → fix it → verify again → repeat until it works
+
+**NEVER** say "Done, let me know if it looks right." YOU check that it looks right.
+
+See  for the full verification protocol.
+
 ## Behavioral Guidelines
 
 - **Explain simply** — the user may not know what an API or state manager is
 - **Working code first** — get it working, then refine
+- **Verify before reporting** — never hand off broken work to the user
 - **Ask before big decisions** — if there are multiple valid approaches, present options
 - **Never commit or push without explicit user request**
-- **Always test your code** — run it before saying it's done

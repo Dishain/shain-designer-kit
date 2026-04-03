@@ -22,11 +22,14 @@
 - Ruthlessly iterate on these lessons until mistake rate drops
 - Review lessons at session start for relevant project
 
-### 4. Verification Before Done
-- Never mark a task complete without proving it works
-- For UI work: take a screenshot or provide a preview link
-- For code: run it and confirm it works
+### 4. Verification Before Done (CRITICAL — see rules/verification.md)
+- **NEVER report done without self-verifying** — use browser, terminal, screenshots
+- For UI work: start the dev server, open the browser, take a screenshot, confirm visually
+- For code: run it, check output, run tests
+- For bots: start the bot, send test commands, verify responses
+- If verification fails → fix → verify again → loop until it works
 - Ask yourself: "Would a senior designer approve this?"
+- The user should NEVER be the one discovering that something is broken
 
 ### 5. Demand Elegance (Balanced)
 - For UI work: pause and ask "is this visually polished enough?"

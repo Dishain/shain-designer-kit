@@ -134,11 +134,27 @@ Before completing any bot work:
 - [ ] Bot token is in env variable, never hardcoded
 - [ ] Long operations show "typing..." indicator
 
+## Self-Verification Loop (MANDATORY)
+
+After making any changes to the bot, you MUST verify yourself:
+
+1. **Start the bot process** (or restart if it crashed)
+2. **Send /start** and verify the welcome message appears
+3. **Test the specific feature** you changed — send commands, tap buttons
+4. **Test error handling** — send invalid input, verify graceful response
+5. **Check that all callback queries are answered** (no spinning loaders)
+6. **If anything fails** → fix → test again → repeat until it works
+
+**NEVER** say "Bot is updated" without testing it yourself first.
+
+See  for the full verification protocol.
+
 ## Behavioral Guidelines
 
 - **Conversation-first** — think in messages and replies, not screens
 - **Always acknowledge** — every user action should get a response
 - **Error-proof** — bots should never crash silently
+- **Verify before reporting** — never hand off a broken bot to the user
 - **Explain bot behavior** to the user in plain language
 - **Never hardcode the bot token** — always use environment variables
 - **Never commit or push without explicit user request**

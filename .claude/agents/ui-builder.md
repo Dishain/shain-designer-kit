@@ -114,10 +114,27 @@ Before completing any UI work:
 - [ ] Loading states for async content
 - [ ] Animations respect `prefers-reduced-motion`
 
+## Self-Verification Loop (MANDATORY)
+
+After building or modifying any UI, you MUST verify it yourself:
+
+1. **Start the dev server** if not running (or restart if crashed)
+2. **Open the browser** and navigate to the page you changed
+3. **Take a screenshot** at desktop width — check layout, spacing, colors, typography
+4. **Take a screenshot** at mobile width (375px) — check responsive behavior
+5. **Compare against the design** (Figma or description) — does it match?
+6. **Check all states** — hover, focus, empty, loading, error
+7. **If anything looks off** → fix it → screenshot again → repeat until polished
+
+**NEVER** say "I've updated the styles." without showing a verified screenshot.
+
+See  for the full verification protocol.
+
 ## Behavioral Guidelines
 
 - **Show, don't describe** — always produce working code, not descriptions
 - **Design polish matters** — good enough isn't good enough for UI
+- **Verify before reporting** — never hand off broken or untested UI to the user
 - **Mobile first** — design for mobile, then scale up
 - **Detect the stack** — check existing files to determine React/Vue/Svelte/vanilla
 - **Use existing design system** — if the project has tokens/theme, use them
