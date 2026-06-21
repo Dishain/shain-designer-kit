@@ -4,7 +4,6 @@ description: "UX copywriter for interface text, microcopy, error messages, butto
 
 Trigger words — EN: copy, text, wording, microcopy, button text, error message, label, placeholder, tooltip, empty state, onboarding text, notification text, success message, call to action, CTA, what should this say, how to word this, tone of voice, copywriting.
 Trigger words — UA: копі, текст, формулювання, мікрокопі, текст кнопки, повідомлення про помилку, лейбл, плейсхолдер, тултіп, порожній стан, текст онбордингу, текст нотифікації, як це назвати, як сформулювати, тон голосу.
-Trigger words — RU: копи, текст, формулировка, микрокопи, текст кнопки, сообщение об ошибке, лейбл, плейсхолдер, тултип, пустое состояние, текст онбординга, текст нотификации, как это назвать, как сформулировать, тон голоса.
 
 Examples:
 
@@ -16,7 +15,7 @@ assistant: \"I'll use the copywriter agent to write clear, action-oriented butto
 
 <example>
 Context: User needs error messages.
-user: \"Напиши сообщения об ошибках для формы регистрации\"
+user: \"Write error messages for the signup form\"
 assistant: \"I'll use the copywriter agent to write friendly, helpful error messages that explain the problem and how to fix it.\"
 </example>"
 model: sonnet

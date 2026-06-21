@@ -1,214 +1,218 @@
-# Claude Designer Kit — твоя команда внутри Claude Code
+# Claude Designer Kit — your team inside Claude Code
 
-Представь, что у тебя за спиной появилась небольшая продуктовая команда: аналитик, UX-исследователь, UI-дизайнер, специалист по доступности, разработчик, копирайтер и тестировщик. Они не спорят, не уходят на обед и работают ровно по твоим правилам. Этот кит превращает Claude Code именно в такую команду — и всё, что тебе нужно, это объяснить, что ты хочешь сделать.
+Imagine a small product team appearing behind you: an analyst, a UX researcher, a UI designer, an accessibility specialist, a developer, a copywriter, and a tester. They don't argue, they don't break for lunch, and they work strictly by your rules. This kit turns Claude Code into exactly that team — and all you have to do is explain what you want to make.
 
-Кит для тех, кто **проектирует и сам собирает интерфейсы**, для vibe-кодеров и для всех, кто хочет дойти от идеи до работающего продукта, не закапываясь в код.
-
----
-
-## В двух словах: как это работает
-
-1. **Скачай** репозиторий (кнопка **Code → Download ZIP**) и распакуй.
-2. **Переименуй** папку в название своего проекта — например, `photo-portfolio`.
-3. **Открой** эту папку в Claude Code (в терминале `claude .`, либо открой папку в десктоп-приложении).
-4. **Один раз** выполни `./install.sh` — подтянутся дизайн-скиллы.
-5. **Опиши**, что хочешь: *«Сделай лендинг для моего фотопортфолио»* — и наблюдай.
-
-Claude сам прочитает настройки, подключит правила, соберёт нужных специалистов, составит план, всё построит и **проверит за собой в браузере**, прежде чем сказать «готово». Тебе остаётся смотреть, подсказывать и принимать решения — как арт-директору.
-
-> Никакой привязки к стеку. React, Vue, Svelte, обычный HTML — кит подстраивается под то, в чём ты работаешь.
+It's for people who **design and build their own interfaces**, for vibe-coders, and for anyone who wants to get from an idea to a working product without disappearing into code.
 
 ---
 
-## Зачем это нужно
+## In a nutshell: how it works
 
-Обычно работа с ИИ-ассистентом выглядит так: ты что-то просишь, получаешь кусок кода, он не запускается, ты не понимаешь почему, и диалог превращается в пинг-понг. Этот кит убирает почти всю эту боль:
+1. **Download** the repository (the **Code → Download ZIP** button) and unzip it.
+2. **Rename** the folder to your project's name — for example, `photo-portfolio`.
+3. **Open** that folder in Claude Code (`claude .` in the terminal, or open the folder in the desktop app).
+4. **Once**, run `./install.sh` — this pulls in the design skills.
+5. **Describe** what you want: *"Build a landing page for my photography portfolio"* — and watch.
 
-- **Говорит на языке дизайна.** Не «реализовал useState-хук», а «добавил кнопку в правый верхний угол, на наведение она слегка подсвечивается».
-- **Сначала думает, потом делает.** На любую нетривиальную задачу сначала появляется план, который ты можешь поправить, — а не сразу гора кода.
-- **Проверяет себя сам.** Прежде чем отчитаться, Claude поднимает страницу в браузере, делает скриншот, смотрит на мобильную и десктопную версию. Ты не должен первым обнаруживать, что что-то сломано.
-- **Запоминает твои предпочтения.** Каждый раз, когда ты его поправляешь, он записывает урок — и в следующий раз не наступает на те же грабли.
-- **Приносит вкус с собой.** Внутри — большая библиотека дизайн-скиллов: типографика, цвет, сетки, микроанимации, доступность, дизайн-системы. Это не «голый» ассистент, а ассистент с насмотренностью.
+Claude reads the settings on its own, loads the rules, assembles the right specialists, drafts a plan, builds everything, and **checks its own work in a browser** before saying "done." Your job is to watch, steer, and make decisions — like an art director.
 
----
-
-## Что внутри
-
-### Команда из 7 специалистов (агентов)
-
-Каждый отвечает за свой участок. Claude сам решает, кого подключить под твою задачу, и запускает их **параллельно**, где это возможно.
-
-| Кто | За что отвечает |
-|-----|-----------------|
-| 🧭 **BA (аналитик)** | Разбирает идею на части: что строим, для кого, что в MVP, а что потом |
-| 🔍 **UX-Researcher** | Пользовательские сценарии, структура навигации, вайрфреймы, информационная архитектура |
-| 🎨 **UI-Builder** | Визуал и сборка: компоненты, цвет, типографика, анимации, Figma → код |
-| 💅 **Design-Reviewer** | После готовой страницы вычищает «AI slop» и доводит крафт (через скилл `impeccable`) |
-| ♿ **Accessibility Auditor** | Проверяет доступность: контраст, навигация с клавиатуры, скринридеры (WCAG AA) |
-| ⚙️ **Developer** | Логика, данные, формы, интеграции, состояние, починка багов |
-| ✍️ **Copywriter** | Тексты интерфейса: кнопки, ошибки, подсказки, пустые состояния |
-| ✅ **Tester** | Визуальный QA, проверка на всех экранах, пользовательские сценарии |
-
-> Работа с **дизайн-системой и токенами** вынесена в отдельный скилл `shain-dls`, а не в агента — о скиллах ниже.
-
-### Библиотека дизайн-скиллов
-
-Скиллы — это «насмотренность» Claude: готовые методички по конкретным темам. Они ставятся командой `./install.sh` из проверенных источников (не вшиты в репозиторий, а подтягиваются «как есть», с указанием первоисточника и лицензии).
-
-| Источник | Что добавляет |
-|----------|---------------|
-| **impeccable** | `impeccable` — целостный «вкус» интерфейса: проектирование, аудит, критика и полировка от Пола Бакауса |
-| **anthropics/skills** | `frontend-design` — продакшн-уровень фронтенда от Anthropic |
-| **ui-ux-pro-max** | 67 UI-стилей, палитры, шрифтовые пары, UX-гайдлайны |
-| **Owl-Listener/designer-skills** | ~95 скиллов: исследования, IA, UI, интеракции, критика, дизайн-системы |
-| **emilkowalski/skills** | `emil-design-eng` — микроанимации и «вкусные» детали интерфейса от Эмиля Ковальски |
-| **Mindrally/skills** | `lottie` — производительные Lottie-анимации в вебе |
-| **shain-dls** | Твой скилл по токен-ориентированным дизайн-системам |
-
-> Плюс справочные ресурсы (не скиллы): коллекция фирменных `DESIGN.md` (через `/use-design-md`) и большой список реальных дизайн-систем для вдохновения.
-
-### Какой стиль используется по умолчанию
-
-Чтобы не было каши из десяти скиллов сразу, стиль выбирается **один**:
-
-- **По умолчанию интерфейс строится в стиле `impeccable`** — это «насмотренный» крафтовый скилл, который делает результат осмысленным, а не «сгенерированным на отвали».
-- Хочешь другой источник стиля — просто скажи: *«используй ui-ux-pro-max»*, *«следуй нашей дизайн-системе»* (`shain-dls`), или возьми фирменный стиль бренда через `/use-design-md`. Тогда эстетику берём оттуда.
-
-### Мультиагентная чистка от «AI slop»
-
-Самое интересное — это работает как команда из двух дизайнеров. Когда страница готова, автоматически подключается **второй агент, Design-Reviewer**:
-
-1. Он смотрит на собранную страницу глазами скилла `impeccable`.
-2. Ищет «AI slop» — типичные признаки сгенерированного дизайна: фиолетовые градиенты по умолчанию, всё по центру без иерархии, рваные отступы, текст-рыба, эмодзи вместо иконок, безликие «три колонки с фичами».
-3. Чинит найденное — и **сохраняет твой выбранный стиль**: если ты выбрал ui-ux-pro-max, он не перекрашивает всё под свой вкус, а только убирает «слоп» и объективные косяки.
-4. Перепроверяет в браузере и повторяет, пока не станет чисто.
-
-То есть один агент строит в выбранной стилистике, второй — придирчиво вычищает. Получается результат, который выглядит **решённым**, а не собранным наугад.
-
-📌 **Важное правило кита:** как только дело доходит до сборки или полировки интерфейса, Claude **всегда** подключает `emil-design-eng` — чтобы микроанимации и взаимодействия не выглядели «сделанными на скорую руку».
-
-### Правила (характер команды)
-
-Это «корпоративная культура» твоей команды — Claude читает их в начале каждой сессии:
-
-- **workflow** — порядок работы и кто за кем подключается
-- **design-principles** — визуальная иерархия, типографика, цвет, отступы, адаптив, движение
-- **code-style** — чистый код под любой стек
-- **verification** — закон «не отчитываться, не проверив за собой»
-- **skills** — как скиллы обновляются и проверяются на безопасность
-- **git-operations** — аккуратная работа с гитом (ничего не коммитит и не пушит без твоей команды)
-
-### Команды быстрого доступа
-
-- **`/figma-to-code`** — превратить макет из Figma в рабочий код
-- **`/review-design`** — полноценное ревью дизайна (UX + UI + доступность + тексты) с приоритетами правок
-- **`/use-design-md`** — взять фирменный стиль известного бренда (Linear, Vercel, Stripe…) и собрать UI «в этом духе»
+> No stack lock-in. React, Vue, Svelte, plain HTML — the kit adapts to whatever you work in.
 
 ---
 
-## Как ощущается работа: пример
+## Why it's useful
 
-Ты пишешь:
+Working with an AI assistant usually goes like this: you ask for something, you get a chunk of code, it doesn't run, you don't know why, and the conversation turns into ping-pong. This kit removes most of that pain:
 
-> «Сделай лендинг для моего фотопортфолио. Минимализм, крупные фото, тёмная тема.»
-
-Что происходит дальше:
-
-1. **Аналитик** уточняет картину: какие секции нужны (герой, галерея, обо мне, контакты), кто целевая аудитория, что в первой версии.
-2. **UX** предлагает структуру и порядок экранов — где что лежит и как человек по этому движется.
-3. **UI-Builder** собирает реальную страницу в стиле по умолчанию (`impeccable`) или в том, что ты выбрал: сетка галереи, типографика, тёмная палитра, аккуратные ховеры и микроанимации (через скилл Эмиля).
-4. **Design-Reviewer** проходится по готовой странице, вычищает «AI slop» и доводит крафт.
-5. Параллельно **доступность** проверяет контраст и навигацию, а **копирайтер** доводит тексты.
-6. **Tester** открывает результат в браузере, смотрит на мобильном и десктопе.
-7. Claude показывает тебе **скриншот** и говорит, что именно проверил.
-
-Ты смотришь и говоришь: *«Фото слишком близко друг к другу, добавь воздуха»*. Claude правит и **снова проверяет** — пока не станет хорошо. И запоминает, что ты любишь больше воздуха между элементами.
+- **It speaks design.** Not "implemented a useState hook," but "added a button in the top-right that lights up slightly on hover."
+- **It thinks first, then builds.** Any non-trivial task starts with a plan you can adjust — not a wall of code up front.
+- **It checks itself.** Before reporting back, Claude opens the page in a browser, takes a screenshot, and looks at the mobile and desktop views. You shouldn't be the first to discover something is broken.
+- **It remembers your preferences.** Every time you correct it, it writes down the lesson — and doesn't repeat the same mistake next time.
+- **It brings taste with it.** Inside is a large library of design skills: typography, color, grids, micro-animations, accessibility, design systems. It's not a bare assistant, but one with a trained eye.
 
 ---
 
-## Память проекта: Claude учится у тебя
+## What's inside
 
-Внутри есть простая, но мощная штука — самообучение между сессиями:
+### A team of 8 specialists (agents)
 
-- **`docs/todo.md`** — сюда Claude пишет план задачи и отмечает галочками прогресс. Ты всегда видишь, что происходит.
-- **`docs/lessons.md`** — после каждой твоей правки сюда записывается урок: что пошло не так и какое правило теперь соблюдать. Этот файл живёт между сессиями, поэтому со временем Claude всё точнее попадает в твой вкус.
+Each owns a part of the work. Claude decides who to bring in for your task and runs them **in parallel** where possible.
 
-Чем дольше работаешь — тем меньше приходится повторять одно и то же.
+| Who | Owns |
+|-----|------|
+| 🧭 **BA (analyst)** | Breaks the idea down: what we're building, for whom, what's in the MVP, what comes later |
+| 🔍 **UX Researcher** | User flows, navigation structure, wireframes, information architecture |
+| 🎨 **UI Builder** | Visuals and build: components, color, typography, animations, Figma → code |
+| 💅 **Design Reviewer** | After a page is built, removes "AI slop" and sharpens the craft (via the `impeccable` skill) |
+| ♿ **Accessibility Auditor** | Checks accessibility: contrast, keyboard navigation, screen readers (WCAG AA) |
+| ⚙️ **Developer** | Logic, data, forms, integrations, state, bug fixes |
+| ✍️ **Copywriter** | Interface text: buttons, errors, hints, empty states |
+| ✅ **Tester** | Visual QA, checks across all screens, user flows |
+
+> Design-system work lives in the `shain-dls` skill, not a dedicated agent — more on skills below.
+
+### A library of design skills
+
+Skills are Claude's "trained eye": ready-made playbooks on specific topics. They're installed with `./install.sh` from vetted sources (not bundled into the repo, but pulled from the original "as is," with the source and license noted).
+
+| Source | What it adds |
+|--------|--------------|
+| **impeccable** | `impeccable` — holistic interface taste: design, audit, critique, and polish, by Paul Bakaus |
+| **anthropics/skills** | `frontend-design` — production-grade frontend from Anthropic |
+| **ui-ux-pro-max** | 67 UI styles, palettes, font pairings, UX guidelines |
+| **Owl-Listener/designer-skills** | ~95 skills: research, IA, UI, interaction, critique, design systems |
+| **emilkowalski/skills** | `emil-design-eng` — micro-animations and the tasteful details, by Emil Kowalski |
+| **Mindrally/skills** | `lottie` — performant Lottie animations on the web |
+| **shain-dls** | Your skill for token-based design systems |
+
+> Plus reference resources (not skills): a collection of brand `DESIGN.md` files (via `/use-design-md`) and a big list of real-world design systems for inspiration.
+
+### Which style is used by default
+
+To avoid a mush of ten skills at once, **one** style is chosen:
+
+- **By default, the interface is built in the `impeccable` style** — a craft-focused skill with a trained eye that makes the result feel intentional rather than churned out.
+- Want a different source of style? Just say so: *"use ui-ux-pro-max"*, *"follow our design system"* (`shain-dls`), or pull a brand's look with `/use-design-md`. Then the aesthetic comes from there.
+
+### Multi-agent cleanup of "AI slop"
+
+Here's the interesting part — it works like a team of two designers. When a page is ready, a **second agent, the Design Reviewer**, kicks in automatically:
+
+1. It looks at the built page through the eyes of the `impeccable` skill.
+2. It hunts for "AI slop" — the telltale signs of generated design: default purple gradients, everything centered with no hierarchy, ragged spacing, placeholder text, emoji used as icons, soulless "three feature columns."
+3. It fixes what it finds — and **preserves your chosen style**: if you picked ui-ux-pro-max, it won't repaint everything to its own taste; it only removes the slop and objective mistakes.
+4. It re-checks in the browser and repeats until it's clean.
+
+So one agent builds in the chosen style and the other meticulously cleans up. The result looks **decided**, not assembled at random.
+
+📌 **A core rule of the kit:** the moment it comes to building or polishing an interface, Claude **always** activates `emil-design-eng` — so micro-animations and interactions don't look slapped together.
+
+### Rules (the team's character)
+
+These are your team's "company culture" — Claude reads them at the start of every session:
+
+- **workflow** — the order of work and who hands off to whom
+- **design-skills-policy** — the default style, how to pick another, and the anti-slop pass
+- **design-principles** — visual hierarchy, typography, color, spacing, responsive, motion
+- **code-style** — clean code in any stack
+- **verification** — the law of "don't report done without checking yourself"
+- **skills** — how skills are updated and security-checked
+- **updates** — how the kit keeps itself current
+- **git-operations** — careful git handling (it never commits or pushes without your say-so)
+
+### Quick commands
+
+- **`/figma-to-code`** — turn a Figma design into working code
+- **`/review-design`** — a full design review (UX + UI + accessibility + copy) with prioritized fixes
+- **`/use-design-md`** — take a known brand's style (Linear, Vercel, Stripe…) and build UI "in that spirit"
 
 ---
 
-## Почему ты не получишь «сломанное»
+## What working with it feels like: an example
 
-Главная боль работы с ИИ — «вот, готово», а оно не запускается. В этом ките зашит **закон самопроверки**: Claude не имеет права сказать «готово», не проверив результат сам. Для интерфейса это значит:
+You type:
 
-1. Поднять и дождаться запуска dev-сервера (если упал — починить).
-2. Открыть страницу в браузере.
-3. Сделать скриншот и посмотреть: на месте ли элементы, читается ли текст, не разъехалось ли.
-4. Проверить мобильную (375px) и десктопную (1440px) версии.
-5. Прокликать кнопки и формы.
-6. И только потом показать тебе результат со скриншотом.
+> "Build a landing page for my photography portfolio. Minimalist, big photos, dark theme."
 
-Если что-то не так — он чинит и проверяет заново, по кругу, пока не заработает. Ты включаешься уже как заказчик, а не как отладчик.
+Here's what happens:
+
+1. The **analyst** clarifies the picture: which sections you need (hero, gallery, about, contact), who the audience is, what's in version one.
+2. **UX** proposes the structure and screen order — where things go and how a person moves through them.
+3. **UI Builder** builds the real page in the default style (`impeccable`) or the one you chose: gallery grid, typography, dark palette, tidy hovers and micro-animations (via Emil's skill).
+4. The **Design Reviewer** goes over the finished page, clears out "AI slop," and sharpens the craft.
+5. In parallel, **accessibility** checks contrast and navigation, while the **copywriter** polishes the text.
+6. The **tester** opens the result in a browser and looks at it on mobile and desktop.
+7. Claude shows you a **screenshot** and tells you exactly what it checked.
+
+You look and say: *"The photos are too close together, give them more air."* Claude fixes it and **checks again** — until it's right. And it remembers that you like more space between elements.
 
 ---
 
-## Полная настройка (по желанию — чтобы раскрыть всё)
+## Project memory: Claude learns from you
 
-Базово кит работает сразу. Чтобы открыть дополнительные возможности, можно подключить ключи в файле `.mcp.json`:
+Inside is a simple but powerful thing — self-improvement between sessions:
 
-| Интеграция | Что даёт | Где взять ключ |
-|------------|----------|----------------|
-| **Figma** | Тянуть макеты, токены, скриншоты прямо из Figma | Figma → Settings → Personal Access Tokens |
-| **shadcn/ui** | Готовая библиотека качественных компонентов | — |
-| **Context7** | Свежая документация фреймворков (а не устаревшая «из памяти») | context7.com |
-| **GitHub** | Работа с репозиториями, PR, issues | GitHub → Developer settings → Tokens |
+- **`docs/todo.md`** — Claude writes the task plan here and tracks progress with checkboxes. You always see what's happening.
+- **`docs/lessons.md`** — after each of your corrections, it records the lesson: what went wrong and the rule to follow now. This file lives between sessions, so over time Claude lands on your taste more and more precisely.
 
-И один раз — установка дизайн-скиллов:
+The longer you work, the less you have to repeat yourself.
+
+---
+
+## Why you won't get something broken
+
+The main pain of working with AI is "here, it's done" — and it doesn't run. This kit bakes in a **law of self-verification**: Claude isn't allowed to say "done" without checking the result itself. For an interface that means:
+
+1. Start and wait for the dev server (if it crashed — fix it).
+2. Open the page in a browser.
+3. Take a screenshot and look: are the elements in place, is the text readable, did anything fall apart?
+4. Check the mobile (375px) and desktop (1440px) versions.
+5. Click the buttons and forms.
+6. Only then show you the result, with a screenshot.
+
+If something's off, it fixes and re-checks, in a loop, until it works. You come in as the client, not the debugger.
+
+---
+
+## The kit keeps itself up to date
+
+You downloaded the archive, renamed the folder, and moved on. Meanwhile the kit got better: new skills, smarter agents. So you don't get stuck on an old version, the kit **checks for updates itself**.
+
+- At the start of a session, Claude quietly (no more than once a day) looks at the source repository. If a new version is out, it tells you in plain words and offers to update.
+- If you agree, `./update.sh` runs. It updates **only the kit's files** (agents, rules, commands), and makes a backup first.
+- Your work is safe: **your project, your text, your memory (`lessons.md`, `todo.md`), and your keys in `.mcp.json` are never touched.** If anything, the old files are in `.kit-backup/`.
+
+So over time your "team" only gets stronger, and you don't have to do anything by hand.
+
+---
+
+## Full setup (optional — to unlock everything)
+
+The kit works out of the box. To open up extra capabilities, you can add keys in `.mcp.json`:
+
+| Integration | What it gives | Where to get the key |
+|-------------|---------------|----------------------|
+| **Figma** | Pull designs, tokens, and screenshots straight from Figma | Figma → Settings → Personal Access Tokens |
+| **shadcn/ui** | A ready library of quality components | — |
+| **Context7** | Up-to-date framework docs (instead of stale "from memory") | context7.com |
+| **GitHub** | Working with repositories, PRs, issues | GitHub → Developer settings → Tokens |
+
+And, once, install the design skills:
 
 ```bash
 ./install.sh
 ```
 
-> `install.sh` тянет каждый скилл с зафиксированной версии, проверяет его на подозрительные команды и только потом ставит. Подробности — в `.claude/skills/SOURCES.md`.
+> `install.sh` pulls each skill at a pinned version, scans it for suspicious commands, and only then installs it. Details are in `.claude/skills/SOURCES.md`.
 
 ---
 
-## Кит сам обновляется
+## FAQ
 
-Ты скачал архив, переименовал папку — и забыл. А кит тем временем стал лучше: добавились скиллы, поумнели агенты. Чтобы ты не остался со старой версией, кит **сам проверяет обновления**.
+**Do I need to know how to code?**
+No. It's enough to explain in words what you want and look at the result. Claude explains everything in plain language.
 
-- В начале сессии Claude по-тихому (не чаще раза в день) заглядывает в исходный репозиторий. Если вышла новая версия — он скажет об этом простыми словами и предложит обновиться.
-- Соглашаешься — выполняется `./update.sh`. Он обновляет **только файлы кита** (агентов, правила, команды), а перед этим делает резервную копию.
-- Твоя работа в безопасности: **проект, тексты, память (`lessons.md`, `todo.md`) и ключи в `.mcp.json` не трогаются никогда.** Если что — старые файлы лежат в `.kit-backup/`.
+**Is this web-only?**
+The kit is tuned for interfaces (React, Vue, Svelte, plain HTML), but it handles logic and integrations too — that's the Developer agent's job.
 
-То есть со временем твоя «команда» становится только сильнее, а тебе ничего не нужно делать вручную.
+**What if I don't like the result?**
+Just say so in plain words. Claude will fix it, re-check, and remember your preference for next time.
 
-## Частые вопросы
+**Will it break my project or push without asking?**
+No. By the kit's rules, Claude doesn't commit or push to git without your explicit command, and always shows changes first.
 
-**Мне нужно уметь кодить?**
-Нет. Достаточно объяснять словами, что ты хочешь, и смотреть на результат. Claude объясняет всё простым языком.
-
-**Это только для веба?**
-Кит заточен под интерфейсы (React, Vue, Svelte, чистый HTML), но логику и интеграции тоже умеет — этим занимается агент Developer.
-
-**А если мне не нравится результат?**
-Просто скажи об этом обычными словами. Claude поправит, перепроверит и запомнит твоё пожелание на будущее.
-
-**Он не сломает мне проект и ничего не запушит без спроса?**
-Нет. По правилам кита Claude не коммитит и не пушит в гит без твоей явной команды и всегда показывает изменения перед этим.
-
-**Можно делиться с друзьями-дизайнерами?**
-Да. Сам кит под лицензией MIT. Подключаемые скиллы сохраняют лицензии своих авторов — кит их не перепродаёт, а подтягивает из источника.
+**Can I share it with designer friends?**
+Yes. The kit itself is MIT-licensed. The bundled skills keep their authors' licenses — the kit doesn't resell them; it pulls them from the source.
 
 ---
 
-## Пара советов на старте
+## A few tips to start
 
-- **Начинай с малого.** Одна страница, один экран — почувствуй ритм работы.
-- **Не бойся поправлять.** Каждая правка делает Claude точнее именно под тебя.
-- **Проси показывать варианты.** «Покажи 2–3 варианта героя» работает отлично.
-- **Думай как арт-директор.** Твоя сила — вкус и решения, а рутину забирает команда.
+- **Start small.** One page, one screen — get a feel for the rhythm.
+- **Don't be afraid to correct.** Every correction makes Claude more precise for you.
+- **Ask to see options.** "Show me 2–3 hero variants" works great.
+- **Think like an art director.** Your strength is taste and decisions; the team takes the routine.
 
 ---
 
-*Кит для дизайнеров, которые строят. Скачай, переименуй папку в свой проект, открой — и пусть команда возьмёт рутину на себя.*
+*A kit for designers who build. Download it, rename the folder to your project, open it — and let the team take the routine off your hands.*

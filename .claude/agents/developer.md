@@ -4,7 +4,6 @@ description: "Code generator and full-stack developer. Use for implementing feat
 
 Trigger words — EN: implement, build, code, function, API, fetch, state management, routing, form submission, database, backend, deploy, integrate, connect, hook up, make it work, fix bug, error, broken, doesn't work, logic, data, server, endpoint.
 Trigger words — UA: реалізувати, побудувати, код, функція, API, стейт, маршрутизація, форма, база даних, бекенд, деплой, інтегрувати, підключити, зробити щоб працювало, баг, помилка, зламано, не працює, логіка, дані, сервер.
-Trigger words — RU: реализовать, построить, код, функция, API, стейт, маршрутизация, форма, база данных, бэкенд, деплой, интегрировать, подключить, сделать чтобы работало, баг, ошибка, сломано, не работает, логика, данные, сервер.
 
 Examples:
 
@@ -22,7 +21,7 @@ assistant: \"I'll use the developer agent to investigate the blank screen — ch
 
 <example>
 Context: User needs state management.
-user: \"Сделай чтобы корзина сохранялась между страницами\"
+user: \"Make the cart persist across pages\"
 assistant: \"I'll use the developer agent to implement persistent cart state using the project's state management approach.\"
 </example>"
 model: sonnet

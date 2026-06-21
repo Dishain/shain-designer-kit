@@ -4,7 +4,6 @@ description: "Testing specialist. Use for writing and running tests — visual r
 
 Trigger words — EN: test, testing, check, verify, QA, quality, broken, regression, cross-browser, responsive test, does it work, screenshot test, visual test, smoke test, e2e, end-to-end.
 Trigger words — UA: тест, тестування, перевірити, верифікувати, якість, зламано, регресія, кросбраузерність, респонсив тест, чи працює, скріншот тест, візуальний тест.
-Trigger words — RU: тест, тестирование, проверить, верифицировать, качество, сломано, регрессия, кроссбраузерность, респонсив тест, работает ли, скриншот тест, визуальный тест.
 
 Examples:
 

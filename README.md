@@ -154,7 +154,7 @@ Create `.claude/agents/my-agent.md`:
 ```yaml
 ---
 name: my-agent
-description: "What this agent does. Trigger words — EN: keyword1. Trigger words — UA: слово1. Trigger words — RU: слово1."
+description: "What this agent does. Trigger words — EN: keyword1, keyword2. Trigger words — UA: слово1, слово2."
 model: sonnet
 color: blue
 ---
@@ -168,9 +168,9 @@ Instructions for the agent...
 
 Create `.claude/rules/my-rule.md` with markdown content. Rules are auto-loaded for every conversation.
 
-### Trilingual Support
+### Bilingual Support
 
-All agents include trigger words in English, Ukrainian, and Russian. To add another language, extend the description field in the YAML frontmatter.
+All agents include trigger words in English (primary) and Ukrainian (fallback). To add another language, extend the description field in the YAML frontmatter.
 
 ## Staying up to date
 

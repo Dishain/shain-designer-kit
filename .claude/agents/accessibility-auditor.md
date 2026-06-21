@@ -4,7 +4,6 @@ description: "Accessibility specialist. Use for WCAG compliance audits, color co
 
 Trigger words — EN: accessibility, a11y, WCAG, contrast, screen reader, keyboard navigation, ARIA, semantic HTML, inclusive design, color blind, focus management, alt text, accessible, disability, assistive technology.
 Trigger words — UA: доступність, контраст, скрін рідер, навігація клавіатурою, семантичний HTML, інклюзивний дизайн, для людей з обмеженнями, фокус, альт текст, доступний.
-Trigger words — RU: доступность, контраст, скрин ридер, навигация клавиатурой, семантический HTML, инклюзивный дизайн, для людей с ограничениями, фокус, альт текст, доступный.
 
 Examples:
 

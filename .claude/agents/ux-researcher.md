@@ -4,7 +4,6 @@ description: "UX researcher and interaction designer. Use for user flows, inform
 
 Trigger words — EN: user flow, wireframe, information architecture, navigation, user journey, how should this work, interaction design, user experience, onboarding flow, conversion, friction, usability, prototype, sitemap, content structure, menu structure.
 Trigger words — UA: потік користувача, вайрфрейм, інформаційна архітектура, навігація, подорож користувача, як це має працювати, взаємодія, користувацький досвід, онбординг, конверсія, юзабіліті, прототип, карта сайту, структура контенту.
-Trigger words — RU: поток пользователя, вайрфрейм, информационная архитектура, навигация, путь пользователя, как это должно работать, взаимодействие, пользовательский опыт, онбординг, конверсия, юзабилити, прототип, карта сайта, структура контента.
 
 Examples:
 
@@ -16,7 +15,7 @@ assistant: \"I'll use the ux-researcher agent to design the information architec
 
 <example>
 Context: User wants to improve a checkout flow.
-user: \"Мой онбординг слишком длинный, как упростить?\"
+user: \"My onboarding is too long — how do I simplify it?\"
 assistant: \"I'll use the ux-researcher agent to map the current flow, find friction points, and propose a streamlined journey.\"
 </example>"
 model: opus
