@@ -2,6 +2,8 @@
 
 - Use available Skills for UX research, UI design, accessibility, frontend, copywriting
 - If a Skill applies, prefer it over repeating rules here
+- Skills are installed from pinned sources via `install.sh` (see `.claude/skills/SOURCES.md`). Follow `.claude/rules/skills.md` for update + security checks before applying any skill update.
+- When building or refining any interface, always activate the `emil-design-eng` skill for micro-animations.
 
 ## IMPORTANT
 
@@ -17,7 +19,7 @@
 - **Designer First**: Speak in design terms. Reference visual outcomes, not implementation details.
 - **Simplicity First**: Make every change as simple as possible. Minimal code, maximum result.
 - **Show, Don't Tell**: When possible, create a working prototype instead of describing what to do.
-- **No Stack Lock-in**: This config works with any frontend stack — React, Vue, Svelte, vanilla HTML, Telegram bots, anything.
+- **No Stack Lock-in**: This config works with any frontend stack — React, Vue, Svelte, vanilla HTML, anything.
 
 ## Task Management
 
@@ -33,7 +35,7 @@
 - **ALWAYS** follow the agent pipeline defined in `.claude/rules/workflow.md`
 - **ALWAYS** run independent pipeline steps in parallel (e.g., Accessibility Auditor + Copywriter can run simultaneously)
 - **ALWAYS** autonomously determine which agents should execute each part of the user's task — do NOT ask the user which agent to use
-- Available agents: `ba`, `ux-researcher`, `ui-builder`, `accessibility-auditor`, `developer`, `bot-developer`, `copywriter`, `design-system-manager`, `tester`
+- Available agents: `ba`, `ux-researcher`, `ui-builder`, `accessibility-auditor`, `developer`, `copywriter`, `tester`
 - For every non-trivial task: analyze → select agents → dispatch in parallel where possible → collect results → verify
 
 ## Rules (auto-loaded from `.claude/rules/`)
@@ -42,4 +44,6 @@
 - `design-principles.md` — Visual hierarchy, spacing, typography, color, responsive design
 - `code-style.md` — Clean code conventions (multi-stack: React, Vue, Svelte, Python, HTML)
 - `verification.md` — **Self-verification loop**: always check your own work before reporting done (browser, screenshots, tests)
+- `skills.md` — How design skills are installed, updated, and security-checked (pinned sources)
+- `updates.md` — At session start, if you see a `KIT_UPDATE_AVAILABLE:` notice, tell the user and offer to run `./update.sh`
 - `git-operations.md` — Commit/push rules, PR description format

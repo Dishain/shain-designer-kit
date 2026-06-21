@@ -26,7 +26,6 @@
 - **NEVER report done without self-verifying** — use browser, terminal, screenshots
 - For UI work: start the dev server, open the browser, take a screenshot, confirm visually
 - For code: run it, check output, run tests
-- For bots: start the bot, send test commands, verify responses
 - If verification fails → fix → verify again → loop until it works
 - Ask yourself: "Would a senior designer approve this?"
 - The user should NEVER be the one discovering that something is broken
@@ -86,6 +85,7 @@ Follow this agent pipeline in order:
 - Design visual interface based on UX research
 - Choose components, colors, typography, spacing
 - Build working UI using appropriate framework
+- **Whenever building or refining an interface, activate the `emil-design-eng` skill** for micro-animations and interaction polish (and `review-animations` when reviewing existing motion)
 - Output: working UI components / pages
 
 ### Step 4: Accessibility Audit (Accessibility-Auditor Agent)
@@ -121,15 +121,7 @@ For tasks that are purely design (no code needed):
 3. **UI-Builder** — visual design, mockups
 4. **Accessibility-Auditor** — compliance check
 
-## Telegram Bot Pipeline
-
-For tasks involving Telegram bots:
-1. **BA Agent** — requirements, bot commands, user flows
-2. **UX-Researcher** — conversation design, bot personality
-3. **Bot-Developer** — implementation
-4. **Tester** — test bot interactions
-
 ## Bug Fix Pipeline (Simplified)
 
-1. **Developer Agent** (or **Bot-Developer** for bots) — investigate + fix
+1. **Developer Agent** — investigate + fix
 2. **Tester Agent** — verify fix works

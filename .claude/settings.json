@@ -2,11 +2,24 @@
   "enabledMcpjsonServers": [
     "figma",
     "shadcn-ui",
+    "context7",
     "github"
   ],
   "permissions": {
     "deny": [
       "Read(./.env)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ./.claude/scripts/check-update.sh"
+          }
+        ]
+      }
     ]
   },
   "model": "opusplan"

@@ -44,6 +44,7 @@
 
 ## Motion & Animation
 
+- **When building or refining any interface, activate the `emil-design-eng` skill** for micro-animations and interaction polish; use `review-animations` when auditing existing motion
 - Use animation purposefully — to guide attention or provide feedback
 - Keep durations short: 150–300ms for micro-interactions, 300–500ms for transitions
 - Prefer ease-out for entrances, ease-in for exits
