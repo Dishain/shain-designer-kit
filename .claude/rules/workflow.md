@@ -83,10 +83,18 @@ Follow this agent pipeline in order:
 
 ### Step 3: UI Design & Build (UI-Builder Agent)
 - Design visual interface based on UX research
+- Build in the **active style skill** — `impeccable` by default, or whatever the
+  user selected (see `.claude/rules/design-skills-policy.md`). Pick one style source.
 - Choose components, colors, typography, spacing
 - Build working UI using appropriate framework
 - **Whenever building or refining an interface, activate the `emil-design-eng` skill** for micro-animations and interaction polish (and `review-animations` when reviewing existing motion)
 - Output: working UI components / pages
+
+### Step 3b: Design Review & Anti-Slop (Design-Reviewer Agent) — runs after each page
+- Activate the `impeccable` skill and audit the built page for AI slop + craft issues
+- **Respect the chosen visual style** — only remove slop and fix objective problems; don't re-style to impeccable's taste when another style was selected
+- Fix, then self-verify (screenshot, responsive, states); loop until clean
+- Output: a sharpened page + before/after summary
 
 ### Step 4: Accessibility Audit (Accessibility-Auditor Agent)
 - Audit UI for WCAG 2.1 AA compliance
@@ -108,18 +116,20 @@ Follow this agent pipeline in order:
 
 ## Parallel Execution
 
-Steps that can run in parallel after UI-Builder completes:
-- **Accessibility Auditor** + **Copywriter** can run simultaneously
+After UI-Builder completes a page:
+- **Design-Reviewer** runs the impeccable anti-slop pass on that page
+- **Accessibility Auditor** + **Copywriter** can run simultaneously with it
 - **Developer** starts after UI-Builder, doesn't need to wait for A11y Auditor
-- A11y fixes are applied after Developer completes
+- A11y and anti-slop fixes are reconciled after Developer completes
 
 ## Design-Only Pipeline
 
 For tasks that are purely design (no code needed):
 1. **BA Agent** — requirements
 2. **UX-Researcher** — user flows, wireframes
-3. **UI-Builder** — visual design, mockups
-4. **Accessibility-Auditor** — compliance check
+3. **UI-Builder** — visual design, mockups (in the active style skill)
+4. **Design-Reviewer** — impeccable anti-slop pass
+5. **Accessibility-Auditor** — compliance check
 
 ## Bug Fix Pipeline (Simplified)
 

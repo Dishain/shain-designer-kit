@@ -65,13 +65,14 @@ The kit includes a self-improvement system:
 
 ## What's Included
 
-### Agents (7)
+### Agents (8)
 
 | Agent | Purpose | Model |
 |-------|---------|-------|
 | `ba` | Requirements analysis, feature planning, MVP scoping | opus |
 | `ux-researcher` | User flows, information architecture, wireframes | opus |
 | `ui-builder` | Visual design, component building, Figma-to-code, styling | opus |
+| `design-reviewer` | Anti-AI-slop & craft review of built pages (via `impeccable`) | opus |
 | `accessibility-auditor` | WCAG 2.1 AA compliance, contrast, keyboard nav, ARIA | sonnet |
 | `developer` | Code implementation, API integration, state management | sonnet |
 | `copywriter` | UX copy, microcopy, error messages, button labels | sonnet |
@@ -79,11 +80,12 @@ The kit includes a self-improvement system:
 
 > Design-system work is handled by the `shain-dls` skill (see Design Skills below), not a dedicated agent.
 
-### Rules (7)
+### Rules (8)
 
 | Rule | Purpose |
 |------|---------|
-| `workflow.md` | Agent pipeline: BA → UX → UI → A11y → Developer → Tester |
+| `workflow.md` | Agent pipeline: BA → UX → UI → Design-Reviewer → A11y → Developer → Tester |
+| `design-skills-policy.md` | Default style (`impeccable`), choosing another, and the anti-slop pass |
 | `design-principles.md` | Visual hierarchy, typography, color, spacing, responsive, motion |
 | `code-style.md` | Multi-stack code conventions (React, Vue, Svelte, Python, HTML) |
 | `verification.md` | Self-verification loop before reporting work done |
@@ -115,11 +117,13 @@ Installed via `./install.sh` from pinned upstream sources (never silently vendor
 
 **Reference resources** (not skills): [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (brand `DESIGN.md` files, via `/use-design-md`) and [awesome-design-systems](https://github.com/alexpate/awesome-design-systems) (a curated list of real-world design systems for inspiration).
 
+**How styles are chosen:** by default the kit builds UI in the `impeccable` style. Say *"use ui-ux-pro-max"*, *"follow our design system"* (`shain-dls`), or `/use-design-md <brand>` to switch the look. Whatever the style, after each page is built the `design-reviewer` agent runs an `impeccable` pass to clean up AI slop — without overriding your chosen style. See `.claude/rules/design-skills-policy.md`.
+
 ### Workflow Pipeline
 
 ```
-Standard Feature:  BA → UX-Researcher → UI-Builder → A11y Auditor → Developer → Tester
-Design Only:       BA → UX-Researcher → UI-Builder → A11y Auditor
+Standard Feature:  BA → UX-Researcher → UI-Builder → Design-Reviewer → A11y Auditor → Developer → Tester
+Design Only:       BA → UX-Researcher → UI-Builder → Design-Reviewer → A11y Auditor
 Bug Fix:           Developer → Tester
 ```
 
