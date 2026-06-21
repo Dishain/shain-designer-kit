@@ -2,7 +2,7 @@
 
 - Use available Skills for UX research, UI design, accessibility, frontend, copywriting
 - If a Skill applies, prefer it over repeating rules here
-- Skills are installed from pinned sources via `install.sh` (see `.claude/skills/SOURCES.md`). Follow `.claude/rules/skills.md` for update + security checks before applying any skill update.
+- Skills install automatically on first launch (background, via `.claude/scripts/bootstrap.sh`) from pinned sources — see `.claude/skills/SOURCES.md`. If you see a `SHAIN_KIT_INSTALLING:` notice, tell the user skills are still installing. Follow `.claude/rules/skills.md` for update + security checks before applying any skill update.
 - **Default design style is the `impeccable` skill.** If the user picks another style (`ui-ux-pro-max`, `shain-dls`, a brand `DESIGN.md`, Figma), use that for the look — see `.claude/rules/design-skills-policy.md`.
 - After any page/screen is built, dispatch the `design-reviewer` agent for an `impeccable` anti-slop pass that respects the chosen style.
 - When building or refining any interface, always activate the `emil-design-eng` skill for micro-animations.

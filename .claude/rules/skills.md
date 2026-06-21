@@ -7,10 +7,14 @@ in [`.claude/skills/SOURCES.md`](../skills/SOURCES.md); the installer is
 
 ## Installing
 
-- First-time setup: run `./install.sh`. It fetches each skill at its pinned
-  commit, runs a security scan, and copies it into `~/.claude/skills/`.
-- If a skill referenced by an agent isn't available, tell the user to run
-  `./install.sh` — do not silently reimplement the skill's behavior inline.
+- **Automatic.** On the first session, the `SessionStart` hook
+  (`.claude/scripts/bootstrap.sh`) installs the skills in the background — the
+  user runs nothing. `./install.sh` is only a manual fallback.
+- If you see a **`SHAIN_KIT_INSTALLING:`** line in the session context, the
+  background install is running — tell the user briefly. If a design skill isn't
+  available yet, wait ~30s and retry (progress is in `.claude/.install.log`).
+- If a skill is still missing after that, suggest the user run `./install.sh`
+  manually — do not silently reimplement the skill's behavior inline.
 
 ## When a skill is invoked
 

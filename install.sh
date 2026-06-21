@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Claude Designer Kit — skill installer
+# Shain Designer Kit — skill installer
 #
 # Installs the kit's design skills from PINNED upstream commits into
 # ~/.claude/skills/. Nothing is vendored into this repo: every skill is fetched
@@ -81,6 +81,9 @@ for entry in "${SKILLS[@]}"; do
   ( cd "$work/$src" && tar --exclude='./.git' -cf - . ) | ( cd "$SKILLS_DIR/$dest" && tar -xf - )
   ok "Installed $dest"
 done
+
+# Mark a successful install so the first-run auto-installer (bootstrap.sh) skips next time.
+: > "$SKILLS_DIR/.shain-kit-installed" 2>/dev/null || true
 
 echo
 ok "Done. Restart Claude Code (or reload skills) to pick up the new skills."

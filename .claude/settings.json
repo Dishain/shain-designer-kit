@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ./.claude/scripts/check-update.sh"
+            "command": "bash ./.claude/scripts/bootstrap.sh"
           }
         ]
       }

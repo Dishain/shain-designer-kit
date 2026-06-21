@@ -1,13 +1,14 @@
 # Kit Updates
 
-This project was created from the **Claude Designer Kit**. The kit evolves over
+This project was created from the **Shain Designer Kit**. The kit evolves over
 time, and projects are often started from a downloaded archive — so the kit
 files here can fall behind the upstream repo.
 
 ## At session start
 
-A `SessionStart` hook runs `.claude/scripts/check-update.sh`, which quietly
-checks the upstream repo (`Dishain/claude-designer-kit`) at most once per day.
+A `SessionStart` hook runs `.claude/scripts/bootstrap.sh`, which installs the
+design skills on first run and quietly checks the upstream repo
+(`Dishain/shain-designer-kit`) for kit updates at most once per day.
 
 - If you see a line beginning with **`KIT_UPDATE_AVAILABLE:`** in the session
   context, tell the user — in plain, friendly language — that a newer version of

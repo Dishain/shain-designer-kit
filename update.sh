@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Claude Designer Kit — self-update
+# Shain Designer Kit — self-update
 #
 # Updates ONLY the kit's own files in this project from the upstream repo.
 # Your work, your project memory, and your API keys are never touched:
@@ -19,7 +19,7 @@
 #
 set -euo pipefail
 
-REPO="Dishain/claude-designer-kit"
+REPO="Dishain/shain-designer-kit"
 BRANCH="main"
 RAW="https://raw.githubusercontent.com/$REPO/$BRANCH"
 TARBALL="https://github.com/$REPO/archive/refs/heads/$BRANCH.tar.gz"
@@ -80,7 +80,7 @@ trap 'rm -rf "$TMP"' EXIT
 
 info "Downloading v$remote_ver…"
 curl -fsSL --max-time 60 "$TARBALL" | tar -xzf - -C "$TMP"
-SRC="$(find "$TMP" -maxdepth 1 -type d -name 'claude-designer-kit-*' | head -1)"
+SRC="$(find "$TMP" -mindepth 1 -maxdepth 1 -type d | head -1)"
 [[ -d "$SRC" ]] || { warn "Download looked wrong — aborting, nothing changed."; exit 1; }
 
 BACKUP=".kit-backup/v${local_ver}-$(date +%Y%m%d-%H%M%S)"
