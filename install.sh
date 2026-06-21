@@ -26,6 +26,8 @@ SKILLS=(
   "Owl-Listener/designer-skills|acc3e574b36ef2895268a176dbae886e1b845ae0|.|designer-skills"
   "emilkowalski/skills|43d8284140edf1301a3a0a781b86c83200857080|skills/emil-design-eng|emil-design-eng"
   "emilkowalski/skills|43d8284140edf1301a3a0a781b86c83200857080|skills/review-animations|review-animations"
+  "pbakaus/impeccable|a110ec5ed71ece971459230a9f82a4196bd005bb|.claude/skills/impeccable|impeccable"
+  "Mindrally/skills|05a71308897983093248d719a2ffa1bca61d0768|lottie|lottie"
   "Dishain/Shain-Design-System-Skill|9675ea2a1d2034846b61b03a39b618c77fb2430c|.|shain-dls"
 )
 

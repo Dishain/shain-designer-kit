@@ -105,11 +105,15 @@ Installed via `./install.sh` from pinned upstream sources (never silently vendor
 
 | Source | What it adds |
 |--------|--------------|
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `impeccable` — holistic interface craft, audit, critique & polish |
 | [anthropics/skills](https://github.com/anthropics/skills) | `frontend-design` |
 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `ui-ux-pro-max` — UI styles, palettes, typography, UX guidelines |
 | [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills) | ~95 design skills (research, IA, UI, interaction, critique, design systems) |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `emil-design-eng`, `review-animations` — micro-animations & interaction polish |
+| [Mindrally/skills](https://github.com/Mindrally/skills) | `lottie` — performant Lottie animations on the web |
 | [Dishain/Shain-Design-System-Skill](https://github.com/Dishain/Shain-Design-System-Skill) | `shain-dls` — token-based design systems |
+
+**Reference resources** (not skills): [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (brand `DESIGN.md` files, via `/use-design-md`) and [awesome-design-systems](https://github.com/alexpate/awesome-design-systems) (a curated list of real-world design systems for inspiration).
 
 ### Workflow Pipeline
 
