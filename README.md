@@ -1,10 +1,10 @@
 # Claude Designer Kit
 
-A Claude Code configuration for designers and vibe-coders. Includes 9 specialized agents, 4 rule files, 2 custom commands, and a structured workflow pipeline that turns Claude Code into your design & development team.
+A Claude Code configuration for designers and vibe-coders. Includes 7 specialized agents, 6 rule files, 3 custom commands, a curated library of design skills, and a structured workflow pipeline that turns Claude Code into your design & development team.
 
 **For:** Designers who build their own interfaces, vibe-coders, and anyone who wants to go from idea to working product without deep coding knowledge.
 
-**Stack:** Any. React, Vue, Svelte, vanilla HTML, Telegram bots — this config adapts to your project.
+**Stack:** Any. React, Vue, Svelte, vanilla HTML — this config adapts to your project.
 
 ## How to Use
 
@@ -20,6 +20,12 @@ claude .          # CLI
 # or open this folder in Claude Code desktop app
 ```
 
+Then install the bundled design skills (one-time, pulls them from pinned sources into `~/.claude/skills/`):
+
+```bash
+./install.sh
+```
+
 Claude will automatically read CLAUDE.md, load the rules, and have access to all agents. Just describe what you want to build.
 
 ### Option B: Add to existing project
@@ -33,6 +39,10 @@ cp -r /tmp/cdk/.claude /path/to/your-project/
 cp /tmp/cdk/CLAUDE.md /path/to/your-project/
 cp /tmp/cdk/.mcp.json /path/to/your-project/
 cp -r /tmp/cdk/docs /path/to/your-project/
+cp /tmp/cdk/install.sh /path/to/your-project/
+
+# Install the design skills (one-time)
+cd /path/to/your-project && ./install.sh
 ```
 
 Then open your project in Claude Code as usual.
@@ -55,43 +65,62 @@ The kit includes a self-improvement system:
 
 ## What's Included
 
-### Agents (9)
+### Agents (7)
 
 | Agent | Purpose | Model |
 |-------|---------|-------|
 | `ba` | Requirements analysis, feature planning, MVP scoping | opus |
-| `ux-researcher` | User flows, information architecture, wireframes, conversation design | opus |
+| `ux-researcher` | User flows, information architecture, wireframes | opus |
 | `ui-builder` | Visual design, component building, Figma-to-code, styling | opus |
 | `accessibility-auditor` | WCAG 2.1 AA compliance, contrast, keyboard nav, ARIA | sonnet |
 | `developer` | Code implementation, API integration, state management | sonnet |
-| `bot-developer` | Telegram bots with aiogram/python-telegram-bot | sonnet |
 | `copywriter` | UX copy, microcopy, error messages, button labels | sonnet |
-| `design-system-manager` | Design tokens, component libraries, style guides | sonnet |
 | `tester` | Visual QA, responsive testing, functional testing | sonnet |
 
-### Rules (4)
+> Design-system work is handled by the `shain-dls` skill (see Design Skills below), not a dedicated agent.
+
+### Rules (7)
 
 | Rule | Purpose |
 |------|---------|
 | `workflow.md` | Agent pipeline: BA → UX → UI → A11y → Developer → Tester |
-| `design-principles.md` | Visual hierarchy, typography, color, spacing, responsive |
+| `design-principles.md` | Visual hierarchy, typography, color, spacing, responsive, motion |
 | `code-style.md` | Multi-stack code conventions (React, Vue, Svelte, Python, HTML) |
+| `verification.md` | Self-verification loop before reporting work done |
+| `skills.md` | How design skills are installed, updated, and security-checked |
+| `updates.md` | How the kit keeps itself up to date with upstream |
 | `git-operations.md` | Commit/push safety, PR format |
 
-### Commands (2)
+### Commands (3)
 
 | Command | Purpose |
 |---------|---------|
 | `/figma-to-code` | Convert Figma designs to working code |
 | `/review-design` | Comprehensive design review (UX + UI + A11y + Copy) |
+| `/use-design-md` | Drop a brand `DESIGN.md` (Linear, Vercel, …) into the project for matching UI |
+
+### Design Skills
+
+Installed via `./install.sh` from pinned upstream sources (never silently vendored). See `.claude/skills/SOURCES.md` for the full manifest, source links, pinned commits, and licenses, and `.claude/rules/skills.md` for the update + security policy.
+
+| Source | What it adds |
+|--------|--------------|
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `impeccable` — holistic interface craft, audit, critique & polish |
+| [anthropics/skills](https://github.com/anthropics/skills) | `frontend-design` |
+| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `ui-ux-pro-max` — UI styles, palettes, typography, UX guidelines |
+| [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills) | ~95 design skills (research, IA, UI, interaction, critique, design systems) |
+| [emilkowalski/skills](https://github.com/emilkowalski/skills) | `emil-design-eng`, `review-animations` — micro-animations & interaction polish |
+| [Mindrally/skills](https://github.com/Mindrally/skills) | `lottie` — performant Lottie animations on the web |
+| [Dishain/Shain-Design-System-Skill](https://github.com/Dishain/Shain-Design-System-Skill) | `shain-dls` — token-based design systems |
+
+**Reference resources** (not skills): [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (brand `DESIGN.md` files, via `/use-design-md`) and [awesome-design-systems](https://github.com/alexpate/awesome-design-systems) (a curated list of real-world design systems for inspiration).
 
 ### Workflow Pipeline
 
 ```
 Standard Feature:  BA → UX-Researcher → UI-Builder → A11y Auditor → Developer → Tester
 Design Only:       BA → UX-Researcher → UI-Builder → A11y Auditor
-Telegram Bot:      BA → UX-Researcher → Bot-Developer → Tester
-Bug Fix:           Developer (or Bot-Developer) → Tester
+Bug Fix:           Developer → Tester
 ```
 
 ## MCP Servers
@@ -139,6 +168,28 @@ Create `.claude/rules/my-rule.md` with markdown content. Rules are auto-loaded f
 
 All agents include trigger words in English, Ukrainian, and Russian. To add another language, extend the description field in the YAML frontmatter.
 
+## Staying up to date
+
+Projects are usually started from a downloaded archive, so the kit files can
+fall behind. The kit checks for its own updates and can pull them safely:
+
+- On session start, a hook (`.claude/scripts/check-update.sh`) quietly checks
+  the upstream repo at most once per day. If a newer version exists, Claude tells
+  you and offers to update.
+- Run `./update.sh` to apply. It backs up the current kit files to
+  `.kit-backup/` first, then replaces **only kit-owned files** (agents, rules,
+  commands, scripts, `CLAUDE.md`, `README.md`, `GUIDE.md`, `install.sh`).
+- It **never** touches your work, your project memory (`docs/lessons.md`,
+  `docs/todo.md`), your API keys (`.mcp.json`), or `.claude/settings.json`.
+- `./update.sh --check` just reports whether an update is available.
+
+See `.claude/rules/updates.md` for the full policy. The current version is in
+`VERSION`.
+
+## Related projects
+
+- [MooseDesign1/DDD — Design Driven Development](https://github.com/MooseDesign1/DDD-DesignDrivenDevelopment) — a full design-first Claude Code framework (separate project, not bundled here).
+
 ## License
 
-MIT
+MIT for this kit. Bundled design skills keep their own upstream licenses — `install.sh` pulls them from source rather than redistributing copies. See `.claude/skills/SOURCES.md` for each skill's license (note: `emilkowalski/skills` ships without an explicit license, so it is fetched at install time and never copied into this repo).

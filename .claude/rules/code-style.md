@@ -40,11 +40,11 @@ This project is **stack-agnostic**. The user may work with React, Vue, Svelte, v
 - Component props via `$props`
 - Keep logic in `.svelte` files, extract utilities to `.js`/`.ts`
 
-## Python (when detected — Telegram bots, scripts, etc.)
+## Python (when detected — scripts, tooling, backends, etc.)
 
 - Follow PEP 8
 - Type hints for function parameters and returns
-- Async/await for I/O operations (especially Telegram bots)
+- Async/await for I/O operations
 - Docstrings for public functions and classes
 - Use `f-strings` for string formatting
 

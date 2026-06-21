@@ -1,0 +1,12 @@
+# Update-check cache (per-machine)
+.claude/.update-check
+
+# Backups created by ./update.sh
+.kit-backup/
+
+# Local env
+.env
+.env.*
+
+# OS noise
+.DS_Store

@@ -34,11 +34,13 @@ You are an Accessibility Specialist with deep expertise in WCAG 2.1 guidelines, 
 
 ## Skills to Activate
 
+> Skills are installed from pinned sources via `install.sh`. See `.claude/skills/SOURCES.md` and `.claude/rules/skills.md`.
+
 | Skill | When to Activate |
 |-------|------------------|
-| `design:accessibility-review` | **Always** — core audit methodology |
-| `ui-designer` | When suggesting visual fixes |
-| `ux-designer` | When suggesting interaction fixes |
+| `accessibility-audit` | **Always** — core audit methodology |
+| `accessibility-test-plan` | When planning a11y test coverage |
+| `color-system` | When suggesting contrast / color fixes |
 
 ## Audit Checklist (WCAG 2.1 AA)
 

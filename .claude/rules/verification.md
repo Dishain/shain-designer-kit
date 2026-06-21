@@ -42,16 +42,6 @@ After making any visual change (component, page, layout, style), you MUST:
 - Show the user a screenshot or summary of what you verified
 - Mention what you checked: "I verified the button appears correctly at the top-right, tested the click handler, and confirmed it works on mobile."
 
-## Verification Steps for Bot Work
-
-After making changes to a Telegram bot:
-
-1. Start the bot process
-2. Send test commands to verify responses
-3. Test conversation flows end-to-end
-4. Check error handling with invalid inputs
-5. Only then report complete
-
 ## Verification Steps for Non-Visual Code
 
 After making backend or logic changes:
