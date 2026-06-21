@@ -4,7 +4,6 @@ description: "UI designer and builder. Use for visual design, component creation
 
 Trigger words — EN: design, UI, component, layout, styling, CSS, Tailwind, colors, typography, animation, button, card, modal, form design, landing page, hero section, dark mode, theme, design system, Figma to code, make it look good, beautiful, pixel perfect, responsive, grid, flexbox, shadow, gradient, border radius, icon.
 Trigger words — UA: дизайн, інтерфейс, компонент, лейаут, стилізація, кольори, типографіка, анімація, кнопка, картка, модалка, форма, лендінг, темна тема, дизайн система, зробити гарно, верстка, тінь, градієнт, іконка, адаптивний.
-Trigger words — RU: дизайн, интерфейс, компонент, лейаут, стилизация, цвета, типографика, анимация, кнопка, карточка, модалка, форма, лендинг, тёмная тема, дизайн система, сделать красиво, вёрстка, тень, градиент, иконка, адаптивный.
 
 Examples:
 
@@ -22,7 +21,7 @@ assistant: \"I'll use the ui-builder agent to fetch the Figma design, analyze th
 
 <example>
 Context: User wants to improve existing UI.
-user: \"Сделай эту страницу красивее\"
+user: \"Make this page look better\"
 assistant: \"I'll use the ui-builder agent to improve visual hierarchy, spacing, typography, and overall polish.\"
 </example>"
 model: opus

@@ -4,7 +4,6 @@ description: "Design quality reviewer and AI-slop cleaner. Runs after a page or 
 
 Trigger words — EN: ai slop, looks generic, looks ai-generated, polish, refine, design review, craft, make it feel intentional, clean up the design, soulless, bland, default look, tighten, design qa, slop.
 Trigger words — UA: виглядає шаблонно, виглядає як згенероване ШІ, відполіруй, доведи до пуття, ревʼю дизайну, крафт, прибрати дешевий вигляд, безлике, дизайн QA.
-Trigger words — RU: выглядит шаблонно, выглядит как сгенерированное ИИ, отполируй, доведи до ума, ревью дизайна, крафт, убрать дешёвый вид, безликое, вычисти дизайн, дизайн QA, слоп.
 
 Examples:
 
@@ -16,7 +15,7 @@ assistant: \"I'll use the design-reviewer agent to audit the page with impeccabl
 
 <example>
 Context: User feels the result is generic.
-user: \"Выглядит как типичный ИИ-дизайн, доведи до ума\"
+user: \"This looks like generic AI design — make it feel intentional\"
 assistant: \"I'll use the design-reviewer agent to run an impeccable anti-slop pass — fix hierarchy, spacing, color and copy that read as generic, then re-verify.\"
 </example>"
 model: opus

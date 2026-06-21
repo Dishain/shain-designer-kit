@@ -4,7 +4,6 @@ description: "Business analyst for requirements, feature planning, and task deco
 
 Trigger words — EN: analyze requirements, plan feature, user stories, acceptance criteria, implementation plan, feasibility, break down task, decompose, roadmap, MVP scope, prioritize, sprint planning, what should we build, scope, brief, spec, requirements.
 Trigger words — UA: аналіз вимог, спланувати фічу, юзер сторі, критерії прийняття, план реалізації, розбити завдання, декомпозиція, дорожня карта, обсяг MVP, пріоритизація, ТЗ, технічне завдання, визначити scope, постановка задачі.
-Trigger words — RU: анализ требований, спланировать фичу, юзер стори, критерии приёмки, план реализации, разбить задачу, декомпозиция, дорожная карта, объём MVP, приоритизация, ТЗ, техническое задание, определить scope, постановка задачи.
 
 Examples:
 
@@ -16,7 +15,7 @@ assistant: \"I'll use the ba agent to analyze requirements — target audience, 
 
 <example>
 Context: User has a vague idea.
-user: \"Хочу сделать сайт для записи клиентов к мастеру\"
+user: \"I want to build a site for booking clients with a specialist\"
 assistant: \"I'll use the ba agent to break this down — user flows, key screens, data structure, and MVP scope.\"
 </example>"
 model: opus
