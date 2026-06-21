@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# SessionStart check: is a newer version of the Claude Designer Kit available?
+# SessionStart check: is a newer version of the Shain Designer Kit available?
 #
 # Fast, silent, and fail-safe — if there's no network or no VERSION file, it
 # exits quietly without slowing down the session. It only PRINTS a notice; it
@@ -10,7 +10,7 @@
 #
 set -euo pipefail
 
-REPO="Dishain/claude-designer-kit"
+REPO="Dishain/shain-designer-kit"
 BRANCH="main"
 RAW="https://raw.githubusercontent.com/$REPO/$BRANCH"
 
@@ -33,6 +33,6 @@ remote_ver="$(curl -fsSL --max-time 3 "$RAW/VERSION" 2>/dev/null | tr -d '[:spac
 # announce only when remote is strictly newer
 newest="$(printf '%s\n%s\n' "$local_ver" "$remote_ver" | sort -V | tail -1)"
 if [[ "$newest" == "$remote_ver" ]]; then
-  echo "KIT_UPDATE_AVAILABLE: Claude Designer Kit v$local_ver → v$remote_ver. Tell the user an update is available and offer to run ./update.sh (their work and project memory are preserved). See .claude/rules/updates.md."
+  echo "KIT_UPDATE_AVAILABLE: Shain Designer Kit v$local_ver → v$remote_ver. Tell the user an update is available and offer to run ./update.sh (their work and project memory are preserved). See .claude/rules/updates.md."
 fi
 exit 0

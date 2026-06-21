@@ -1,6 +1,10 @@
 # Update-check cache (per-machine)
 .claude/.update-check
 
+# First-run skill install lock + log (per-machine)
+.claude/.installing
+.claude/.install.log
+
 # Backups created by ./update.sh
 .kit-backup/
 

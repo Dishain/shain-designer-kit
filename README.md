@@ -1,4 +1,4 @@
-# Claude Designer Kit
+# Shain Designer Kit
 
 A Claude Code configuration for designers and vibe-coders. Includes 7 specialized agents, 6 rule files, 3 custom commands, a curated library of design skills, and a structured workflow pipeline that turns Claude Code into your design & development team.
 
@@ -8,44 +8,36 @@ A Claude Code configuration for designers and vibe-coders. Includes 7 specialize
 
 ## How to Use
 
-### Option A: New project (start from scratch)
+### Option A: New project (recommended)
 
-```bash
-# Clone the kit
-git clone https://github.com/Dishain/claude-designer-kit.git my-project
-cd my-project
+1. Download the kit — **Code → Download ZIP** — and unzip it.
+2. Rename the folder to your project's name (e.g. `photo-portfolio`).
+3. Open that folder in Claude Code (`claude .`, or open it in the desktop app).
 
-# Open in Claude Code
-claude .          # CLI
-# or open this folder in Claude Code desktop app
-```
+That's it. **On first launch the kit installs its design skills automatically, in
+the background** — you don't have to run anything. Claude reads `CLAUDE.md`, loads
+the rules, and has all agents ready. Just describe what you want to build.
 
-Then install the bundled design skills (one-time, pulls them from pinned sources into `~/.claude/skills/`):
-
-```bash
-./install.sh
-```
-
-Claude will automatically read CLAUDE.md, load the rules, and have access to all agents. Just describe what you want to build.
+> Prefer git? `git clone https://github.com/Dishain/shain-designer-kit.git my-project`
+> then open the folder. (Manual install is never required, but `./install.sh` is
+> there as a fallback.)
 
 ### Option B: Add to existing project
 
 ```bash
-# Clone the kit temporarily
-git clone https://github.com/Dishain/claude-designer-kit.git /tmp/cdk
+# Grab the kit
+git clone https://github.com/Dishain/shain-designer-kit.git /tmp/cdk
 
 # Copy config files into your project
 cp -r /tmp/cdk/.claude /path/to/your-project/
 cp /tmp/cdk/CLAUDE.md /path/to/your-project/
 cp /tmp/cdk/.mcp.json /path/to/your-project/
 cp -r /tmp/cdk/docs /path/to/your-project/
-cp /tmp/cdk/install.sh /path/to/your-project/
-
-# Install the design skills (one-time)
-cd /path/to/your-project && ./install.sh
+cp /tmp/cdk/install.sh /tmp/cdk/update.sh /path/to/your-project/
 ```
 
-Then open your project in Claude Code as usual.
+Open your project in Claude Code — the design skills install automatically on the
+first session.
 
 ### What happens when you start working
 
@@ -103,7 +95,7 @@ The kit includes a self-improvement system:
 
 ### Design Skills
 
-Installed via `./install.sh` from pinned upstream sources (never silently vendored). See `.claude/skills/SOURCES.md` for the full manifest, source links, pinned commits, and licenses, and `.claude/rules/skills.md` for the update + security policy.
+**Installed automatically on first launch** (in the background) from pinned upstream sources — never silently vendored. No command needed; `./install.sh` exists only as a manual fallback. See `.claude/skills/SOURCES.md` for the full manifest, source links, pinned commits, and licenses, and `.claude/rules/skills.md` for the update + security policy.
 
 | Source | What it adds |
 |--------|--------------|
@@ -177,9 +169,9 @@ All agents include trigger words in English (primary) and Ukrainian (fallback). 
 Projects are usually started from a downloaded archive, so the kit files can
 fall behind. The kit checks for its own updates and can pull them safely:
 
-- On session start, a hook (`.claude/scripts/check-update.sh`) quietly checks
-  the upstream repo at most once per day. If a newer version exists, Claude tells
-  you and offers to update.
+- On session start, a hook (`.claude/scripts/bootstrap.sh`) installs skills on
+  first run and quietly checks the upstream repo for kit updates (at most once a
+  day). If a newer version exists, Claude tells you and offers to update.
 - Run `./update.sh` to apply. It backs up the current kit files to
   `.kit-backup/` first, then replaces **only kit-owned files** (agents, rules,
   commands, scripts, `CLAUDE.md`, `README.md`, `GUIDE.md`, `install.sh`).

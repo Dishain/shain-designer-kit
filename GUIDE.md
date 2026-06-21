@@ -1,4 +1,4 @@
-# Claude Designer Kit — your team inside Claude Code
+# Shain Designer Kit — your team inside Claude Code
 
 Imagine a small product team appearing behind you: an analyst, a UX researcher, a UI designer, an accessibility specialist, a developer, a copywriter, and a tester. They don't argue, they don't break for lunch, and they work strictly by your rules. This kit turns Claude Code into exactly that team — and all you have to do is explain what you want to make.
 
@@ -11,10 +11,9 @@ It's for people who **design and build their own interfaces**, for vibe-coders, 
 1. **Download** the repository (the **Code → Download ZIP** button) and unzip it.
 2. **Rename** the folder to your project's name — for example, `photo-portfolio`.
 3. **Open** that folder in Claude Code (`claude .` in the terminal, or open the folder in the desktop app).
-4. **Once**, run `./install.sh` — this pulls in the design skills.
-5. **Describe** what you want: *"Build a landing page for my photography portfolio"* — and watch.
+4. **Describe** what you want: *"Build a landing page for my photography portfolio"* — and watch.
 
-Claude reads the settings on its own, loads the rules, assembles the right specialists, drafts a plan, builds everything, and **checks its own work in a browser** before saying "done." Your job is to watch, steer, and make decisions — like an art director.
+On the first launch the kit **installs its design skills automatically, in the background** — you don't run any commands. Claude reads the settings on its own, loads the rules, assembles the right specialists, drafts a plan, builds everything, and **checks its own work in a browser** before saying "done." Your job is to watch, steer, and make decisions — like an art director.
 
 > No stack lock-in. React, Vue, Svelte, plain HTML — the kit adapts to whatever you work in.
 
@@ -177,13 +176,10 @@ The kit works out of the box. To open up extra capabilities, you can add keys in
 | **Context7** | Up-to-date framework docs (instead of stale "from memory") | context7.com |
 | **GitHub** | Working with repositories, PRs, issues | GitHub → Developer settings → Tokens |
 
-And, once, install the design skills:
-
-```bash
-./install.sh
-```
-
-> `install.sh` pulls each skill at a pinned version, scans it for suspicious commands, and only then installs it. Details are in `.claude/skills/SOURCES.md`.
+The design skills install themselves on the first launch — you don't need to run
+anything. If you ever want to do it by hand, `./install.sh` is the manual
+fallback: it pulls each skill at a pinned version, scans it for suspicious
+commands, and only then installs it. Details are in `.claude/skills/SOURCES.md`.
 
 ---
 
