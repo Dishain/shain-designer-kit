@@ -3,6 +3,8 @@
 - Use available Skills for UX research, UI design, accessibility, frontend, copywriting
 - If a Skill applies, prefer it over repeating rules here
 - Skills are installed from pinned sources via `install.sh` (see `.claude/skills/SOURCES.md`). Follow `.claude/rules/skills.md` for update + security checks before applying any skill update.
+- **Default design style is the `impeccable` skill.** If the user picks another style (`ui-ux-pro-max`, `shain-dls`, a brand `DESIGN.md`, Figma), use that for the look — see `.claude/rules/design-skills-policy.md`.
+- After any page/screen is built, dispatch the `design-reviewer` agent for an `impeccable` anti-slop pass that respects the chosen style.
 - When building or refining any interface, always activate the `emil-design-eng` skill for micro-animations.
 
 ## IMPORTANT
@@ -35,12 +37,13 @@
 - **ALWAYS** follow the agent pipeline defined in `.claude/rules/workflow.md`
 - **ALWAYS** run independent pipeline steps in parallel (e.g., Accessibility Auditor + Copywriter can run simultaneously)
 - **ALWAYS** autonomously determine which agents should execute each part of the user's task — do NOT ask the user which agent to use
-- Available agents: `ba`, `ux-researcher`, `ui-builder`, `accessibility-auditor`, `developer`, `copywriter`, `tester`
+- Available agents: `ba`, `ux-researcher`, `ui-builder`, `design-reviewer`, `accessibility-auditor`, `developer`, `copywriter`, `tester`
 - For every non-trivial task: analyze → select agents → dispatch in parallel where possible → collect results → verify
 
 ## Rules (auto-loaded from `.claude/rules/`)
 
-- `workflow.md` — Agent pipeline: BA → UX-Researcher → UI-Builder → A11y Auditor → Developer → Tester
+- `workflow.md` — Agent pipeline: BA → UX-Researcher → UI-Builder → Design-Reviewer → A11y Auditor → Developer → Tester
+- `design-skills-policy.md` — Default style (`impeccable`), how to pick another, and the anti-slop review pass
 - `design-principles.md` — Visual hierarchy, spacing, typography, color, responsive design
 - `code-style.md` — Clean code conventions (multi-stack: React, Vue, Svelte, Python, HTML)
 - `verification.md` — **Self-verification loop**: always check your own work before reporting done (browser, screenshots, tests)
